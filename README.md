@@ -3,8 +3,12 @@
 Template for building poly-gateway service, based on spring boot, jmx
 
 # JMX
+
 JMX interface is located on page /jmx/
 
+# Shell
+
+Access through SSH shell is available, use `ssh admin@localhost -p 9002`
 
 License
 =======
