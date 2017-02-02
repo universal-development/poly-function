@@ -2,6 +2,8 @@ package com.unidev.service;
 
 import com.unidev.platform.j2ee.common.WebUtils;
 import org.jminix.console.servlet.MiniConsoleServlet;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -10,6 +12,9 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.ServletContext;
@@ -17,7 +22,8 @@ import javax.servlet.ServletException;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-public class Application implements ServletContextInitializer {
+@EnableWebSecurity
+public class Application extends WebSecurityConfigurerAdapter implements ServletContextInitializer {
 
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
@@ -44,6 +50,19 @@ public class Application implements ServletContextInitializer {
     public void onStartup(ServletContext servletContext) throws ServletException {
         servletContext.addServlet("JmxMiniConsoleServlet", MiniConsoleServlet.class).addMapping("/jmx/*");
     }
+
+	@Value("${admin.user}")
+	private String adminUser;
+
+	@Value("${admin.password}")
+	private String adminPassword;
+
+	@Autowired
+	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+		auth
+				.inMemoryAuthentication()
+				.withUser(adminUser).password(adminPassword).roles("ADMIN");
+	}
 
 }
 
