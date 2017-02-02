@@ -1,48 +1,6 @@
-# poly-gateway
+# poly-gateway service template
 
-[![Build Status](https://travis-ci.org/universal-development/poly-gateway.svg?branch=master)](https://travis-ci.org/universal-development/poly-gateway)
-
-API gateway service which match HTTP requests by patterns and query appropriate service for results.
-
-Current version: 0.1.0-SNAPSHOT
-
-Released version: 0.0.1
-
-Gradle dependency 
-```compile 'com.unidev.polygateway:poly-gateway:0.0.1' ```
-
-## Modules
-
-poly-gateway-model - model objects, used to handle requests, responses
-
-poly-gateway - gateway service which handle requests
-
-poly-gateway-client - default client to gateway
-
-
-## API calls
-
-Empty request to gateway url
-
-`curl -v  -H "Content-Type: application/json" -X POST -d {}  http://localhost:8000/gateway`
-
-
-## Stack
-
- Java 8
-
- Spring Cloud: eureka, hystrix 
- 
- Spring Boot 1.4.x
-
- Vaadin
-
- Gradle
-
-
-# Building
-To build project, try
-`./gradlew build -PXunidev`
+Template for building poly-gateway service, based on spring boot, jmx
 
 License
 =======
