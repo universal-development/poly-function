@@ -2,7 +2,9 @@
 
 Template for building poly-gateway service, based on spring boot, jmx
 
+# JMX
 JMX interface is located on page /jmx/
+
 
 License
 =======
