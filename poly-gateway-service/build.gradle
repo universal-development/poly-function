@@ -32,6 +32,7 @@ springBoot {
 }
 
 dependencies {
+	compile("com.unidev.polygateway:poly-gateway-service-domain:0.1.0-SNAPSHOT")
     compile project(":poly-gateway-service-domain")
     compile("com.unidev.platform:unidev-strings:$project.unidevPlatformVersion")
     compile("com.unidev.platform:unidev-j2ee:$project.unidevPlatformVersion")
