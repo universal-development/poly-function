@@ -4,12 +4,12 @@ import com.unidev.platform.j2ee.common.WebUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 
-@RestController("/public")
+@RestController
 public class InternalService {
 
     private static Logger LOG = LoggerFactory.getLogger(InternalService.class);
@@ -20,7 +20,7 @@ public class InternalService {
     @Autowired
     private WebUtils webUtils;
 
-    @PostMapping
+    @GetMapping("/internal")
     public String handle() {
         LOG.info("Internal  request {}  {}", webUtils.listAllHeaders(servletRequest),  servletRequest);
         return "Internal page";
