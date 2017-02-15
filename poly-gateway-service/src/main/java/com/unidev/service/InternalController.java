@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * Controller for "internal" operations usage
+ */
 @RestController
 public class InternalController {
 
