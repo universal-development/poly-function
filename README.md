@@ -2,6 +2,8 @@
 
 Template for building poly-gateway service, based on spring boot, jmx
 
+Public available API is available on path /api/**
+
 # JMX
 
 JMX interface is located on page /jmx/
