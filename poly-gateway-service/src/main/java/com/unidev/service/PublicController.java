@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 
 @RestController
-public class PublicService {
+public class PublicController {
 
-    private static Logger LOG = LoggerFactory.getLogger(PublicService.class);
+    private static Logger LOG = LoggerFactory.getLogger(PublicController.class);
 
     @Autowired
     private HttpServletRequest servletRequest;
