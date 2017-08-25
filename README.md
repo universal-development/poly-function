@@ -1,6 +1,6 @@
-# poly-gateway service template
+# poly-function
 
-Template for building poly-gateway service, based on spring boot, jmx
+Functions available over RESTful api
 
 Public available API is available on path /api/**
 
