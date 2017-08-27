@@ -35,11 +35,13 @@ dependencies {
     compile("com.unidev.platform:unidev-strings:$project.unidevPlatformVersion")
     compile("com.unidev.platform:unidev-j2ee:$project.unidevPlatformVersion")
     compile 'org.jminix:jminix:1.2.0'
+	compile 'org.codehaus.groovy:groovy-all'
 	compile('org.springframework.boot:spring-boot-starter-actuator')
 	compile('org.springframework.boot:spring-boot-actuator-docs')
 	compile('org.springframework.cloud:spring-cloud-starter-eureka')
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.boot:spring-boot-starter-remote-shell')
+	compileOnly('org.projectlombok:lombok')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
