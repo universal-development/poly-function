@@ -13,7 +13,7 @@ import org.springframework.util.FileCopyUtils;
 @Slf4j
 public class ScriptService {
 
-    public static final String EXTS[] = { ".groovy", ".kt"};
+    public static final String EXTS[] = { ".groovy", ".kt", ".scala"};
 
     @Value("${scripts.root:/tmp/scripts}")
     private String scriptsLocation;
