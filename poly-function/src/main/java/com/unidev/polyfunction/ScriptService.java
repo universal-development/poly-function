@@ -4,6 +4,7 @@ package com.unidev.polyfunction;
 import java.io.File;
 import java.io.FileReader;
 import java.util.Optional;
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,7 @@ public class ScriptService {
     public static final String EXTS[] = { ".groovy", ".kt", ".scala"};
 
     @Value("${scripts.root:/tmp/scripts}")
+    @Getter
     private String scriptsLocation;
 
 
