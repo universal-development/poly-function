@@ -1,22 +1,21 @@
-package com.unidev.service;
+package com.unidev.polyfunction;
 
 import com.unidev.platform.j2ee.common.WebUtils;
-import javax.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
- * Public exposed service endpoint
+ * Controller for "internal" operations usage
  */
 @RestController
-@RequestMapping("/api/v1")
-public class APIController {
+public class InternalController {
 
-    private static Logger LOG = LoggerFactory.getLogger(APIController.class);
+    private static Logger LOG = LoggerFactory.getLogger(InternalController.class);
 
     @Autowired
     private HttpServletRequest servletRequest;
@@ -24,10 +23,10 @@ public class APIController {
     @Autowired
     private WebUtils webUtils;
 
-    @GetMapping("public")
+    @GetMapping("/internal")
     public String handle() {
-        LOG.info("Public request {} {}", webUtils.listAllHeaders(servletRequest),  servletRequest);
-        return "Public page";
+        LOG.info("Internal  request {}  {}", webUtils.listAllHeaders(servletRequest),  servletRequest);
+        return "Internal page";
     }
 
 }
