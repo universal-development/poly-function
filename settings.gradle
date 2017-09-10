@@ -1,2 +1,3 @@
 include "poly-function"
 include "poly-function-api"
+include "poly-function-model"
