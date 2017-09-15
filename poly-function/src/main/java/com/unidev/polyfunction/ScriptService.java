@@ -1,6 +1,7 @@
 package com.unidev.polyfunction;
 
 
+import com.unidev.polyfunction.exception.PolyFunctionException;
 import java.io.File;
 import java.io.FileReader;
 import java.util.Optional;
@@ -14,8 +15,6 @@ import org.springframework.util.FileCopyUtils;
 @Slf4j
 public class ScriptService {
 
-    public static final String EXTS[] = { ".groovy", ".kt", ".scala"};
-
     @Value("${scripts.root:/tmp/scripts}")
     @Getter
     private String scriptsLocation;
@@ -24,31 +23,19 @@ public class ScriptService {
     /**
      * Fetch script code
      */
-    public String fetchScript(String scriptName) {
+    public Optional<String> fetchScript(String scriptName) {
 
-        Optional<File> fileScript = fetchScriptFile(scriptName);
-        if (!fileScript.isPresent()) {
-            throw new ScriptNotFoundException();
+        File fileScript = new File(scriptsLocation, scriptName);
+        if (!fileScript.exists()) {
+            return Optional.empty();
         }
-        File file = fileScript.get();
-
-        try (FileReader fileReader = new FileReader(file)) {
-            return FileCopyUtils.copyToString(fileReader);
+        try (FileReader fileReader = new FileReader(fileScript)) {
+            return Optional.of(FileCopyUtils.copyToString(fileReader));
         } catch (Exception e) {
-            log.warn("Failed to load script file  {} {}", scriptName, file, e);
+            log.warn("Failed to load script file  {} {}", scriptName, scriptName, e);
             throw new PolyFunctionException("Failed to load file");
 
         }
     }
 
-    public Optional<File> fetchScriptFile(String scriptName) {
-        for(String ext : EXTS) {
-            File file = new File(scriptsLocation, scriptName + ext);
-            if (file.exists()) {
-                return Optional.of(file);
-            }
-        }
-
-        return Optional.empty();
-    }
 }

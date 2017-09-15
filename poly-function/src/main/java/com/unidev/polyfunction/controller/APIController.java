@@ -1,4 +1,4 @@
-package com.unidev.polyfunction;
+package com.unidev.polyfunction.controller;
 
 import com.unidev.platform.j2ee.common.WebUtils;
 import javax.servlet.http.HttpServletRequest;

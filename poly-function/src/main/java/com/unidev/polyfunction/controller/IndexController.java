@@ -1,4 +1,4 @@
-package com.unidev.polyfunction;
+package com.unidev.polyfunction.controller;
 
 import org.springframework.stereotype.Controller;
 
