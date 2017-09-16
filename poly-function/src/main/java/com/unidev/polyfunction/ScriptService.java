@@ -19,7 +19,6 @@ public class ScriptService {
     @Getter
     private String scriptsLocation;
 
-
     /**
      * Fetch script code
      */
