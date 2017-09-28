@@ -1,7 +1,7 @@
 package com.unidev.polyfunction.evaluator;
 
-import com.unidev.polyfunction.FunctionRequest;
 import com.unidev.polyfunction.FunctionResponse;
+import java.util.Map;
 
 /**
  * Service for evaluation of scripts
@@ -17,10 +17,7 @@ public interface ScriptEvaluator {
 
     /**
      * Evaluate function
-     * @param script
-     * @param functionRequest
-     * @return
      */
-    FunctionResponse evaluate(String script, FunctionRequest functionRequest);
+    FunctionResponse evaluate(String script, Map<String, Object> context);
 
 }
