@@ -9,6 +9,7 @@ import com.unidev.polyfunction.ScriptService;
 import java.io.File;
 import java.io.IOException;
 import java.util.Optional;
+import org.apache.sshd.common.util.IoUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,7 @@ public class PolyFunctionTests {
 
 	@Test
 	public void notFoundScript() {
-        Optional<File> file = scriptService.fetchScriptFile("potato");
+        Optional<String> file = scriptService.fetchScript("potato");
         assertThat(file, is(notNullValue()));
         assertThat(file.isPresent(), is(false));
     }
@@ -40,10 +41,10 @@ public class PolyFunctionTests {
 	    File testFile = new File(location, "qwe.groovy");
 	    testFile.createNewFile();
 
-        Optional<File> file = scriptService.fetchScriptFile("qwe");
+        Optional<String> file = scriptService.fetchScript("qwe");
         assertThat(file, is(notNullValue()));
         assertThat(file.isPresent(), is(true));
-        assertThat(file.get().getName(), is("qwe.groovy"));
+        assertThat(file, is("qwe.groovy"));
     }
 
 }
