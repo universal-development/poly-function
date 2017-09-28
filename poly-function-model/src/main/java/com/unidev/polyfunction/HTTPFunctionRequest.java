@@ -1,7 +1,6 @@
 package com.unidev.polyfunction;
 
 
-import java.util.HashMap;
 import java.util.Map;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,13 +13,13 @@ import lombok.Setter;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class HTTPFuncitonRequest {
+public class HTTPFunctionRequest {
 
     private String script;
 
-    private Map<String, Object> parameters = new HashMap<>();
+    private Map<String, Object> parameters;
 
-    public <T> HTTPFuncitonRequest withParameter(String param, T value) {
+    public <T> HTTPFunctionRequest withParameter(String param, T value) {
         parameters.put(param, value);
         return this;
     }

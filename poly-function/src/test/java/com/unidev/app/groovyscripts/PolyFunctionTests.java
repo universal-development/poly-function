@@ -9,6 +9,8 @@ import com.unidev.polyfunction.ScriptService;
 import java.io.File;
 import java.io.IOException;
 import java.util.Optional;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 import org.apache.sshd.common.util.IoUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -40,11 +42,12 @@ public class PolyFunctionTests {
 	    new File(location).mkdirs();
 	    File testFile = new File(location, "qwe.groovy");
 	    testFile.createNewFile();
+        FileUtils.writeStringToFile(testFile, "test", "UTF-8");
 
-        Optional<String> file = scriptService.fetchScript("qwe");
+        Optional<String> file = scriptService.fetchScript("qwe.groovy");
         assertThat(file, is(notNullValue()));
         assertThat(file.isPresent(), is(true));
-        assertThat(file, is("qwe.groovy"));
+        assertThat(file.get(), is("test"));
     }
 
 }

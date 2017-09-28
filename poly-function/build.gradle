@@ -35,7 +35,8 @@ dependencies {
 	compile project(":poly-function-model")
     compile("com.unidev.platform:unidev-strings:$project.unidevPlatformVersion")
     compile("com.unidev.platform:unidev-j2ee:$project.unidevPlatformVersion")
-    compile 'org.jminix:jminix:1.2.0'
+	compile 'commons-io:commons-io:2.5'
+	compile 'org.jminix:jminix:1.2.0'
 	compile 'org.codehaus.groovy:groovy-all'
 	compile('org.springframework.boot:spring-boot-starter-actuator')
 	compile('org.springframework.boot:spring-boot-actuator-docs')
