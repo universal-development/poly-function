@@ -13,9 +13,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class GroovyScriptEvaluator implements ScriptEvaluator {
 
-    @Autowired
-    private ScriptService scriptService;
-
     @Override
     public boolean canHandle(String scriptName) {
         return scriptName.toLowerCase().endsWith(".groovy");
@@ -27,9 +24,7 @@ public class GroovyScriptEvaluator implements ScriptEvaluator {
         for(Entry<String, Object> entry : context.entrySet()) {
             groovyShell.setVariable(entry.getKey(), entry.getValue());
         }
-        String groovyScript = scriptService.fetchScript(script).orElseThrow(
-            ScriptNotFoundException::new);
-        return GenericFunctionResponse.builder().payload(groovyShell.evaluate(groovyScript)).build();
+        return GenericFunctionResponse.builder().payload(groovyShell.evaluate(script)).build();
     }
 
 

@@ -16,7 +16,7 @@ public interface ScriptEvaluator {
     boolean canHandle(String scriptName);
 
     /**
-     * Evaluate function
+     * Evaluate function from script
      */
     FunctionResponse evaluate(String script, Map<String, Object> context);
 
