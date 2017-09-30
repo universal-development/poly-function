@@ -14,7 +14,7 @@ import com.unidev.platform.components.http.XTrustProvider
 @Grab('com.unidev.platform:unidev-utils:2.0.0')
 @GrabExclude('xml-apis:xml-apis')
 
-        XTrustProvider.install()
+XTrustProvider.install()
 
 HTTPClient httpClient = new HTTPClient();
 httpClient.init("Potato")
