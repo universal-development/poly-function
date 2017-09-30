@@ -1,7 +1,8 @@
 project.ext.unidevPlatformVersion = "2.1.0-SNAPSHOT"
 
 subprojects {
-
+    group = 'com.unidev'
+    version = '0.0.1-SNAPSHOT'
 
     apply plugin: 'maven'
     apply plugin: 'java'
@@ -21,7 +22,6 @@ subprojects {
         apply from: 'http://dev.local/gradle/javadoc.groovy'
     }
 
-    group = 'com.unidev'
-    version = '0.0.1-SNAPSHOT'
+
 }
 
