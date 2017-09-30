@@ -13,7 +13,7 @@ import lombok.Setter;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class HTTPFunctionRequest {
+public class HTTPFunctionRequest implements FunctionRequest {
 
     private String script;
 
