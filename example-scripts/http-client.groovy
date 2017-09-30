@@ -1,9 +1,6 @@
 /**
- * HTTP Client instatiation
+ * HTTP Client instantiation
  */
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
-
 import com.unidev.platform.components.http.HTTPClient
 import com.unidev.platform.components.http.HTTPClientUtils
 import com.unidev.platform.components.http.XTrustProvider
