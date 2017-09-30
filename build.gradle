@@ -21,5 +21,7 @@ subprojects {
         apply from: 'http://dev.local/gradle/javadoc.groovy'
     }
 
+    group = 'com.unidev'
+    version = '0.0.1-SNAPSHOT'
 }
 
