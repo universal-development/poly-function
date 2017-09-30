@@ -4,6 +4,7 @@ import com.unidev.platform.j2ee.common.WebUtils;
 import com.unidev.polyfunction.FunctionResponse;
 import com.unidev.polyfunction.HTTPFunctionRequest;
 import com.unidev.polyfunction.PolyFunctionCore;
+import groovy.util.logging.Log4j;
 import javax.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,7 +38,7 @@ public class APIController {
     @ResponseBody
     public FunctionResponse handle(@RequestBody HTTPFunctionRequest httpFunctionRequest) {
         LOG.info("function request {} {}", webUtils.listAllHeaders(servletRequest),  servletRequest);
-        return polyFunctionCore.evaluateHTTPRequest(httpFunctionRequest);
+        return polyFunctionCore.evaluateHTTPRequest(httpFunctionRequest, servletRequest);
     }
 
 }
