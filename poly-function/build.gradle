@@ -38,7 +38,7 @@ dependencies {
 	compile 'commons-io:commons-io:2.5'
 	compile 'org.jminix:jminix:1.2.0'
     compile 'io.springfox:springfox-swagger2:2.6.1'
-    compile 'io.springfox:springfox-swagger-ui:2.4.0'
+    compile 'io.springfox:springfox-swagger-ui:2.6.1'
 	compile 'org.codehaus.groovy:groovy-all'
 	compile('org.springframework.boot:spring-boot-starter-actuator')
 	compile('org.springframework.boot:spring-boot-actuator-docs')
