@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -34,7 +35,7 @@ public class APIController {
     @Autowired
     private PolyFunctionCore polyFunctionCore;
 
-    @PostMapping("function")
+    @RequestMapping(value = "function", method = RequestMethod.POST)
     @ResponseBody
     public FunctionResponse handle(@RequestBody HTTPFunctionRequest httpFunctionRequest) {
         LOG.info("function request {} {}", webUtils.listAllHeaders(servletRequest),  servletRequest);
