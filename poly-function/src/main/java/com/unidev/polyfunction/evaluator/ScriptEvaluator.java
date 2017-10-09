@@ -10,8 +10,6 @@ public interface ScriptEvaluator {
 
     /**
      * Check if evaluator can handle script
-     * @param scriptName
-     * @return
      */
     boolean canHandle(String scriptName);
 

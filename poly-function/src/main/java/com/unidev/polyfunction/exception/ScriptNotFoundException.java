@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 /**
  * Script not found exception
  */
-@ResponseStatus(value= HttpStatus.NOT_FOUND, reason="Not found")
+@ResponseStatus(value = HttpStatus.NOT_FOUND, reason = "Not found")
 public class ScriptNotFoundException extends RuntimeException {
 
     public ScriptNotFoundException() {

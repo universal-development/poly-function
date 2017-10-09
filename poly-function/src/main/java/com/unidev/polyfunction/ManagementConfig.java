@@ -7,8 +7,9 @@ import org.springframework.context.annotation.Bean;
 
 @ManagementContextConfiguration
 public class ManagementConfig {
+
     @Bean
-    ServletRegistrationBean jmxServletRegistration () {
+    ServletRegistrationBean jmxServletRegistration() {
         ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean();
         servletRegistrationBean.setServlet(new MiniConsoleServlet());
         servletRegistrationBean.addUrlMappings("/jmx/*");

@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 /**
  * Script not found exception
  */
-@ResponseStatus(value= HttpStatus.INTERNAL_SERVER_ERROR, reason="Service error")
+@ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR, reason = "Service error")
 public class PolyFunctionException extends RuntimeException {
 
     public PolyFunctionException() {

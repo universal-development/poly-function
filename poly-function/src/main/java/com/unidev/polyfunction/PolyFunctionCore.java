@@ -22,21 +22,22 @@ public class PolyFunctionCore {
     @Autowired
     private List<ScriptEvaluator> scriptEvaluators;
 
-    public FunctionResponse evaluateHTTPRequest(HTTPFunctionRequest functionRequest, ServletRequest servletRequest) {
+    public FunctionResponse evaluateHTTPRequest(HTTPFunctionRequest functionRequest,
+        ServletRequest servletRequest) {
         LOG.info("Evaluating HTTP request {}", functionRequest);
 
         String script = scriptService.fetchScript(functionRequest.getScript()).orElseThrow(
             ScriptNotFoundException::new);
-        for(ScriptEvaluator evaluator : scriptEvaluators) {
+        for (ScriptEvaluator evaluator : scriptEvaluators) {
             if (evaluator.canHandle(functionRequest.getScript())) {
                 try {
                     LOG.info("Evaluating script {} on {}", functionRequest.getScript(), evaluator);
                     ImmutableMap<String, Object> contextMap = ImmutableMap
                         .of("request", functionRequest, "servletRequest", servletRequest);
                     return evaluator.evaluate(script, contextMap);
-                }catch (Throwable t) {
+                } catch (Throwable t) {
                     LOG.error("Failed to evaluate script {}", functionRequest.getScript(), t);
-                    throw  new PolyFunctionException(t);
+                    throw new PolyFunctionException(t);
                 }
             }
         }

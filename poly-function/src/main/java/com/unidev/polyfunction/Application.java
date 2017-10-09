@@ -16,14 +16,14 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class Application {
 
-	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
+    }
 
-	@Bean
-	public WebUtils webUtils() {
-		return new WebUtils();
-	}
+    @Bean
+    public WebUtils webUtils() {
+        return new WebUtils();
+    }
 
     @Bean
     public Docket apiDocs() {
