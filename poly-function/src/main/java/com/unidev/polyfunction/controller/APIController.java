@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * Public exposed polyfunction endpoint
+ * Public exposed poly function endpoint.
  */
 @RestController
 @RequestMapping("/api/v1")

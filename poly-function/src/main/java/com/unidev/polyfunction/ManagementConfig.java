@@ -5,6 +5,9 @@ import org.springframework.boot.actuate.autoconfigure.ManagementContextConfigura
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 
+/**
+ * Management configuration installation.
+ */
 @ManagementContextConfiguration
 public class ManagementConfig {
 

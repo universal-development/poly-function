@@ -11,6 +11,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.util.FileCopyUtils;
 
+/**
+ * Service for loading scripts for evaluation.
+ */
 @Service
 @Slf4j
 public class ScriptService {
