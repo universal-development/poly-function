@@ -6,15 +6,13 @@ import com.unidev.polyfunction.exception.PolyFunctionException;
 import com.unidev.polyfunction.exception.ScriptNotFoundException;
 import java.util.List;
 import javax.servlet.ServletRequest;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
+@Slf4j
 public class PolyFunctionCore {
-
-    private static Logger LOG = LoggerFactory.getLogger(PolyFunctionCore.class);
 
     @Autowired
     private ScriptService scriptService;
@@ -24,19 +22,19 @@ public class PolyFunctionCore {
 
     public FunctionResponse evaluateHTTPRequest(HTTPFunctionRequest functionRequest,
         ServletRequest servletRequest) {
-        LOG.info("Evaluating HTTP request {}", functionRequest);
+        log.info("Evaluating HTTP request {}", functionRequest);
 
         String script = scriptService.fetchScript(functionRequest.getScript()).orElseThrow(
             ScriptNotFoundException::new);
         for (ScriptEvaluator evaluator : scriptEvaluators) {
             if (evaluator.canHandle(functionRequest.getScript())) {
                 try {
-                    LOG.info("Evaluating script {} on {}", functionRequest.getScript(), evaluator);
+                    log.info("Evaluating script {} on {}", functionRequest.getScript(), evaluator);
                     ImmutableMap<String, Object> contextMap = ImmutableMap
                         .of("request", functionRequest, "servletRequest", servletRequest);
                     return evaluator.evaluate(script, contextMap);
                 } catch (Throwable t) {
-                    LOG.error("Failed to evaluate script {}", functionRequest.getScript(), t);
+                    log.error("Failed to evaluate script {}", functionRequest.getScript(), t);
                     throw new PolyFunctionException(t);
                 }
             }
