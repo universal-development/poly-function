@@ -36,11 +36,22 @@ dependencies {
     compile("com.unidev.platform:unidev-strings:$project.unidevPlatformVersion")
     compile("com.unidev.platform:unidev-j2ee:$project.unidevPlatformVersion")
     compile 'commons-io:commons-io:2.5'
+
     compile 'org.jminix:jminix:1.2.0'
+
     compile 'io.springfox:springfox-swagger2:2.6.1'
     compile 'io.springfox:springfox-swagger-ui:2.6.1'
+
+    // groovy
     compile 'org.codehaus.groovy:groovy-all'
     compile group: 'org.apache.ivy', name: 'ivy', version: '2.4.0'
+
+    // scala
+    compile group: 'org.scala-lang', name: 'scala-library', version: '2.12.4'
+    compile group: 'org.scala-lang', name: 'scala-reflect', version: '2.12.4'
+    compile group: 'org.scala-lang', name: 'scala-compiler', version: '2.12.4'
+
+
     compile('org.springframework.boot:spring-boot-starter-actuator')
     compile('org.springframework.boot:spring-boot-actuator-docs')
     compile('org.springframework.cloud:spring-cloud-starter-eureka')
