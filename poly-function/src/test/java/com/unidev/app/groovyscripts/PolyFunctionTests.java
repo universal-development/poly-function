@@ -1,14 +1,22 @@
 package com.unidev.app.groovyscripts;
 
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
+import com.google.common.collect.ImmutableMap;
 import com.unidev.polyfunction.Application;
+import com.unidev.polyfunction.FunctionResponse;
+import com.unidev.polyfunction.GenericFunctionResponse;
 import com.unidev.polyfunction.ScriptService;
+import com.unidev.polyfunction.evaluator.ScalaScriptEvaluator;
 import java.io.File;
 import java.io.IOException;
 import java.util.Optional;
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.sshd.common.util.IoUtils;
@@ -24,6 +32,9 @@ public class PolyFunctionTests {
 
 	@Autowired
 	private ScriptService scriptService;
+
+	@Autowired
+	private ScalaScriptEvaluator scalaScriptEvaluator;
 
 	@Test
 	public void contextLoads() {
@@ -48,6 +59,12 @@ public class PolyFunctionTests {
         assertThat(file, is(notNullValue()));
         assertThat(file.isPresent(), is(true));
         assertThat(file.get(), is("test"));
+    }
+
+    @Test
+    public void testScalaScript() {
+        GenericFunctionResponse result = (GenericFunctionResponse) scalaScriptEvaluator.evaluate("var a:Int =  10", ImmutableMap.of());
+	    assertThat(result.getPayload(), equalTo(10));
     }
 
 }

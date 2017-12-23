@@ -18,7 +18,7 @@ public class ScalaScriptEvaluator implements ScriptEvaluator {
 
     @Override
     public boolean canHandle(String scriptName) {
-        return scriptName.toLowerCase().endsWith(".scala");
+        return scriptName.toLowerCase().endsWith(".scala") || scriptName.toLowerCase().endsWith(".sc");
     }
 
     @Override
