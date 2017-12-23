@@ -1,6 +1,8 @@
 # poly-function
 
-Functions available over RESTful api
+Executable functions available over RESTful api
+
+Supported languages: Groovy
 
 Public available API is available on path /api/**
 
